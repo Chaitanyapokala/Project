@@ -10,7 +10,6 @@ import com.capgemini.fms.exception.BookingException;
 
 public class BookingServiceImp implements BookingService {
 
-
 	BookingDao dao = new BookingDaoImp();
 
 	public Booking addBooking(Booking b) {
@@ -23,16 +22,16 @@ public class BookingServiceImp implements BookingService {
 		return null;
 	}
 
-	public List<Booking> viewBooking(long bookingid){
+	public List<Booking> viewBooking(long bookingid) {
 		// TODO Auto-generated method stub
-		boolean flag=false;
-		String num=String.valueOf(bookingid);
-		flag=num.matches("[1-9][0-9]{3}");
-		if(flag==false)
-		{
+		boolean flag = false, required = false;
+		String number = String.valueOf(bookingid);
+		flag = number.matches("[1-9][0-9]{3}");
+		required = number.matches("[1-9]");
+		if ((flag == false && required == false) || (flag == false && required == true)) {
 			throw new BookingException("Invalid booking id");
 		}
-		
+
 		return dao.viewBooking(bookingid);
 	}
 
@@ -43,18 +42,17 @@ public class BookingServiceImp implements BookingService {
 
 	public void deleteBooking(long bookingid) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void validateBooking(Booking bookingid) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void validadatePassenger(Passenger p) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
+
 }

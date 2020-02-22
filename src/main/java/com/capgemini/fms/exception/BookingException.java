@@ -1,13 +1,12 @@
 package com.capgemini.fms.exception;
 
-public class BookingException extends RuntimeException{
+public class BookingException extends RuntimeException {
 
-	public BookingException(String s)
-	{
+	public BookingException(String s) {
 		super(s);
 	}
-	public BookingException()
-	{
+
+	public BookingException() {
 		super();
 	}
 }
